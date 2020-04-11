@@ -1,5 +1,5 @@
-require 'pry'
-require 'optparse'
+require "pry"
+require "optparse"
 
 def number_string(num)
   num.to_s.reverse.scan(/\d{3}|.+/).join(",").reverse
@@ -55,24 +55,24 @@ end
 
 options = {run_count: 1_000_000, verbose: false, randomize_values: true}
 
-OptionParser.new do|opts|
+OptionParser.new { |opts|
   opts.banner = "Usage: bundle exec ruby envelopes.rb [options]"
-  opts.on('-c', '--count 10000', 'Number of iterations') do |run_count|
+  opts.on("-c", "--count 10000", "Number of iterations") do |run_count|
     options[:run_count] = Integer(run_count)
   end
 
-  opts.on('-v', '--verbose false', 'Display verbose info per run') do |verbose|
-    options[:verbose] = verbose.downcase == 'true'
+  opts.on("-v", "--verbose false", "Display verbose info per run") do |verbose|
+    options[:verbose] = verbose.downcase == "true"
   end
 
-  opts.on('-r', '--randomize true', 'Randomizes the values in the envelopes on each run') do |randomize_values|
-    options[:randomize_values] = randomize_values.downcase == 'true'
+  opts.on("-r", "--randomize true", "Randomizes the values in the envelopes on each run") do |randomize_values|
+    options[:randomize_values] = randomize_values.downcase == "true"
   end
 
-  opts.on('-h', '--help', 'Displays Help') do
+  opts.on("-h", "--help", "Displays Help") do
     puts opts
     exit
   end
-end.parse!
+}.parse!
 
 run_simulation(**options)
