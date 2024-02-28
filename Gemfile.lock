@@ -37,7 +37,7 @@ GEM
       rubocop (~> 0.80.1)
       rubocop-performance (~> 1.5.2)
     unicode-display_width (1.6.1)
-    yard (0.9.24)
+    yard (0.9.35)
 
 PLATFORMS
   ruby
